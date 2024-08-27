@@ -9,6 +9,19 @@
 	text-align: center;
 }
 
+.filter-group--checkbox {
+	flex: 1;
+	align-items: center; 
+}
+
+.filter input[type="checkbox"] {
+	margin: 0;
+}
+
+.filter label[for="checkbox"] {
+	padding-left: 7px;
+}
+
 .filter input[type='text'] {
 	width: 80%;
 	padding: 8px;
