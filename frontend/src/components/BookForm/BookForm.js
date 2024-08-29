@@ -4,6 +4,7 @@ import { addBook, fetchBook } from '../../redux/slices/booksSlice';
 import createBookWidthId from '../../utils/createBookWidthId';
 import booksData from '../../data/books.json';
 import './BookForm.css';
+import { setError } from '../../redux/slices/errorSlice';
 
 const BookForm = () => {
    const [title, setTitle] = useState('');
@@ -16,7 +17,9 @@ const BookForm = () => {
          dispatch(addBook(createBookWidthId({ title, author }, 'random')));
          setTitle('');
          setAuthor('');
-      }
+      } else {
+			dispatch(setError('You must fill title and author!'))
+		}
    };
 
    const handleAddRandomBook = () => {
@@ -26,7 +29,7 @@ const BookForm = () => {
    };
 
    const handleAddRandomViaAPI = () => {
-      dispatch(fetchBook());
+      dispatch(fetchBook('http://localhost:4000/random-book'));
    };
 
    return (
